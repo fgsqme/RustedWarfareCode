@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <application android:allowAudioPlaybackCapture="true" android:hardwareAccelerated="true"
+                 android:hasFragileUserData="true" android:icon="@drawable/icon" android:label="@string/app_name"
+                 android:largeHeap="true" android:name="com.corrodinggames.rts.appFramework.RWApplication"
+                 android:requestLegacyExternalStorage="true" android:resizeableActivity="true"
+                 android:theme="@style/app_theme" android:usesCleartextTraffic="true">
+        <meta-data android:name="android.max_aspect" android:value="4.0"/>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/app_name"
+                  android:name="com.corrodinggames.rts.appFramework.IntroScreen" android:screenOrientation="behind"
+                  android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:name="com.corrodinggames.rts.appFramework.MainMenuActivity"
+                  android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:name="com.corrodinggames.rts.appFramework.SettingsActivity" android:screenOrientation="behind"
+                  android:windowSoftInputMode="stateHidden"/>
+        <activity
+                android:configChanges="fontScale|keyboard|keyboardHidden|locale|mcc|mnc|navigation|orientation|screenLayout|touchscreen|uiMode"
+                android:name="com.corrodinggames.rts.appFramework.InGameActivity" android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:name="com.corrodinggames.rts.appFramework.LevelSelectActivity"
+                  android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:name="com.corrodinggames.rts.appFramework.LevelGroupSelectActivity"
+                  android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:name="com.corrodinggames.rts.appFramework.LoadLevelActivity"
+                  android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:name="com.corrodinggames.rts.appFramework.ReplaySelectActivity"
+                  android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:name="com.corrodinggames.rts.appFramework.CreditsActivity"
+                  android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:name="com.corrodinggames.rts.appFramework.SettingsKeysActivity"
+                  android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:name="com.corrodinggames.rts.appFramework.MultiplayerLobbyActivity"
+                  android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:name="com.corrodinggames.rts.appFramework.MultiplayerBattleroomActivity"
+                  android:screenOrientation="behind" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:name="com.corrodinggames.rts.appFramework.NewMissionStarterActivity"
+                  android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:name="com.corrodinggames.rts.appFramework.QuickHelpActivity"
+                  android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:name="com.corrodinggames.rts.appFramework.ClosingActivity"
+                  android:screenOrientation="behind"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:name="com.corrodinggames.rts.appFramework.ModsActivity" android:screenOrientation="behind"/>
+        <provider android:authorities="com.corrodinggames.rts.fileProvider" android:exported="false"
+                  android:grantUriPermissions="true" android:name=".appFramework.GenericFileProvider">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/provider_paths"/>
+        </provider>
+    </application>
+
+    <uses-feature
+            android:name="android.hardware.camera"
+            android:required="false"/>
+
+    <!-- 通知权限 -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+    <!-- app列表获取权限 -->
+    <uses-permission android:name="android.permission.GET_INSTALLED_APPS"/>
+    <uses-permission
+            android:name="android.permission.QUERY_ALL_PACKAGES"
+            tools:ignore="QueryAllPackagesPermission"/>
+
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <!-- 安卓11权限 -->
+    <uses-permission
+            android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+            tools:ignore="ScopedStorage"/>
+    <!-- 在SDCard中创建与删除文件权限 -->
+    <uses-permission
+            android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+            tools:ignore="ProtectedPermissions"/>
+    <!-- 往SDCard写入数据权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
+                     tools:ignore="CoarseFineLocation"/>
+    <uses-permission
+            android:name="android.permission.OVERRIDE_WIFI_CONFIG"
+            tools:ignore="ProtectedPermissions"/>
+
+    <uses-permission
+            android:name="android.permission.WRITE_SETTINGS"
+            tools:ignore="ProtectedPermissions"/>
+
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <!--保证息屏service不被杀死-->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT"/>
+    <!--卸载程序权限-->
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES"/>
+
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <!--usb相关权限-->
+    <uses-permission
+            android:name="android.hardware.usb.host"
+            android:required="false"/>
+
+    <!--开机启动权限-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
+    <!--电话接听状态监听-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+
+    <!--悬浮窗、后台显示权限-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW"/>
+
+
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
+
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+</manifest>
